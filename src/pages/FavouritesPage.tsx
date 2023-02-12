@@ -1,9 +1,18 @@
 import React from 'react'
 
-const FavouritesPage = () => {
+export function FavouritesPage() {
+  
   return (
-    <div>FavouritesPage</div>
+    <div><h1>FavouritesPage</h1></div>
   )
 }
 
-export default FavouritesPage
+// import React from 'react'
+
+// const FavouritesPage = () => {
+//   return (
+//     <div>FavouritesPage</div>
+//   )
+// }
+
+// export default FavouritesPage
