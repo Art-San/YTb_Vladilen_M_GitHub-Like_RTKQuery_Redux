@@ -1,4 +1,4 @@
-import { IUser, ServerRespons } from './../../models/models';
+import { IRepo, IUser, ServerRespons } from './../../models/models';
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 
 export const githubApi = createApi({
@@ -17,13 +17,21 @@ export const githubApi = createApi({
           }
         }),
         transformResponse: (response: ServerRespons<IUser>) => response.items
-        
+      }),
+      getUserrepos: build.query<IRepo[], string>({
+        query: (username: string) => ({
+          url: `users/${username}/repos`
+        })
+      }),
+      createUser: build.mutation<any, void>({
+        query: () => 'url какой то '          // еслиб бекЭнд подерживал то моглибы создать ползователя
       })
       
     })
   })
-
-  export const {useSearchUsersQuery} = githubApi
+// в место useGetUserreposQuery используем useLazyGetUserreposQuery (LAZY означает что сделаем запрос когда захотим)
+  export const {useSearchUsersQuery, useLazyGetUserreposQuery, useCreateUserMutation} = githubApi
+  
 
 
 
