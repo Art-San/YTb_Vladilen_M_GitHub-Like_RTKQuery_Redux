@@ -6,6 +6,7 @@ export const githubApi = createApi({
     baseQuery: fetchBaseQuery({
       baseUrl: 'https://api.github.com/'
     }),
+    refetchOnFocus: true,
     endpoints: build => ({
       searchUsers: build.query<IUser[], string>({
         query: (search: string) => ({
@@ -34,7 +35,7 @@ export const githubApi = createApi({
 //         baseUrl: 'https://api.github.com/'
 //     }),
 //     endpoints: build => ({
-//         searchUsers: build.query({
+//         searchUsers: build.query<any, string>({ // сначала мы не знаем что прилетит поэтому "any"
 //             query: () => 'search/users' // первоначально было так
 //         })
 //     })
